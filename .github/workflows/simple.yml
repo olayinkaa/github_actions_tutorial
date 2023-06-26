@@ -3,12 +3,21 @@ name: shell commands
 on: [push]
 
 jobs:
-  run-shell-commands:
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo string
-        run: echo "Hello world"
-      - name: multi-line script
-        run: |
-            node -v
-            npm -v
+    run-shell-commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo string
+              run: echo "Hello world"
+            - name: multi-line script
+              run: |
+                node -v
+                npm -v
+    run-on-window:
+        runs-on: window-latest
+        needs: ["run-shell-commands"]
+        steps:
+            - name: Directory Powershell
+              run: Get-Location
+            - name: Directory Bash
+              run: pwd
+              shell: bash

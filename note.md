@@ -16,3 +16,6 @@ Github hosted runners: l
 Self-hosted runners
 - Machine you manage and maintain with the runner application installed
 
+### SECRET
+- ACTIONS_RUNNER_DEBUG : true
+- ACTIONS_STEP_DEBUG : true
