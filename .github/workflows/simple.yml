@@ -11,7 +11,7 @@ jobs:
         steps:
             - name: client payload
               run: |
-                echo "${{github.event.client_payload.env}}""
+                echo "${{github.event.client_payload.env}}"
             - name: echo string
               run: echo "Hello world"
             - name: multi-line script
