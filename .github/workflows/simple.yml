@@ -1,11 +1,17 @@
 name: shell commands
 
-on: [push]
+on: 
+    repository_dispatch:
+        types: [build]
+    push:
 
 jobs:
     run-shell-commands:
         runs-on: ubuntu-latest
         steps:
+            - name: client payload
+              run: |
+                echo "{{github.event.client_payload.env}}""
             - name: echo string
               run: echo "Hello world"
             - name: multi-line script
