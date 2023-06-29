@@ -13,5 +13,5 @@ jobs:
                 who-to-greet: Ibrahim Olayinka
             - name: Log greeting time
               run: |
-                echo "{{steps.greet.outputs.time}}"
+                echo "${{steps.greet.outputs.time}}"
  
