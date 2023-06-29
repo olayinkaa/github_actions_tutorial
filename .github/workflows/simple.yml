@@ -18,6 +18,7 @@ jobs:
               run: |
                 node -v
                 npm -v
+                echo "${{secrets.github_action}}"
     run-on-window:
         runs-on: windows-latest
         needs: ["run-shell-commands"]
