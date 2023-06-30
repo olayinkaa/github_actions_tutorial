@@ -19,6 +19,17 @@ jobs:
                 node -v
                 npm -v
                 echo "${{secrets.github_action}}"
+            - name: decrypt file
+              env:
+                PASSPHRASE: ${{secrets.PASSPHRASE}}
+                JOBCONTEXT: ${{toJson(job)}}
+                RUNNERCONTEXT: ${{toJson(runner)}}
+                STEPSCONTEXT: ${{toJson(steps)}}
+              run: |
+                gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.json encrypted-file.gpg
+                cat $HOME/secret.json
+                echo $JOBCONTEXT
+
     run-on-window:
         runs-on: windows-latest
         needs: ["run-shell-commands"]

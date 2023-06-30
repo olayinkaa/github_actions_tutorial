@@ -2,6 +2,7 @@
 - [Event trigger](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
 
 - [Github Context](https://docs.github.com/en/actions/learn-github-actions/contexts)
+   runner, env, steps, needs etc
 - []
 
 ### RUNNER
@@ -85,3 +86,6 @@ jobs:
                 echo "STEP_ENV: ${JOB_ENV}"
                 echo "GITHUB REPO: ${GITHUB_REPOSITORY}"
 ```
+
+### GPG
+- gpg --symmetric --cipher-algo AES256 --output encrypted-file.gpg secret.json

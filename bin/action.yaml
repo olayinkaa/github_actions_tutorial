@@ -14,4 +14,23 @@ jobs:
             - name: Log greeting time
               run: |
                 echo "${{steps.greet.outputs.time}}"
+            - name: push a random file
+              run: |
+                pwd
+                ls -a
+                git init
+                git remote add origin "https://$GITHUB_ACTORS:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+                git config --global user.email "ibrahimolayinkaa@gmail.com"
+                git config --global user.name "Olayinka ibrahim"
+                git fetch
+                git checkout master
+                git branch --set-upstream-to=origin/master
+                git pull
+                ls -a
+                echo $RANDOM >> random.txt
+                ls -a
+                git add -A
+                git commit -m "Random file"
+                git push
+    
  
